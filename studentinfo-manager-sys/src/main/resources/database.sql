@@ -2,7 +2,7 @@ create database student_info;
 
 use student_info;
 
-CREATE TABLE IF NOT EXISTS `student`(
+CREATE TABLE IF NOT EXISTS `tb_student`(
    `studentId` INT UNSIGNED AUTO_INCREMENT,
    `studentNumber` VARCHAR(20) NOT NULL,
    `name` VARCHAR(20) NOT NULL,

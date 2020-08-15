@@ -1,10 +1,78 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE configuration
-  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.tango.dao.StudentDao">
-	<insert paremeterType="">
-		insert into student values()
+	<!-- 插入一行数据 -->
+	<insert id="insertOne" parameterType="com.tango.entity.Student">
+		INSERT INTO
+		`student_info`.`tb_student`
+		(`studentNumber`,
+		`name`,
+		`age`,
+		`phone`,
+		`address`
+		)
+		VALUES
+		(#{studentNumber},
+		#{name},
+		#{age},
+		#{phone},
+		#{address}
+		);
 	</insert>
+
+	<!-- 查询tb_student 表所有数据 -->
+	<!--<resultMap type="com.tango.entity.Student" id="studentmap"> <id column="studentId" 
+		property="studentId" /> <result column="studentNumber" property="studentNumber" 
+		/> <result column="name" property="name" /> <result column="age" property="age" 
+		/> <result column="phone" property="phone" /> <result column="address" property="address" 
+		/> </resultMap> -->
+	<select id="selectAll" resultType="com.tango.entity.Student">
+		SELECT `studentId`,
+		`studentNumber`,
+		`name`,
+		`age`,
+		`phone`,
+		`address`
+		FROM
+		`student_info`.`tb_student`
+	</select>
+
+	<!-- 根据studentId查询数据 -->
+	<select id="selectById" parameterType="int"
+		resultType="com.tango.entity.Student">
+		SELECT `studentId`,
+		`studentNumber`,
+		`name`,
+		`age`,
+		`phone`,
+		`address`
+		FROM
+		`student_info`.`tb_student`
+		WHERE `studentId` =
+		#{studentId}
+	</select>
+
+	<!-- 根据id删除数据 -->
+	<delete id="deleteById">
+		DELETE FROM `student_info`.`tb_student`
+		WHERE
+		studentId = #{studentId}
+	</delete>
+
+	<update id="updateById" parameterType="com.tango.entity.Student">
+		UPDATE
+		`student_info`.`tb_student`
+		SET
+		`studentId` = #{studentId} ,
+		`studentNumber` = #{studentNumber} ,
+		`name` = #{name},
+		`age` = #{age},
+		`phone` = #{phone} ,
+		`address` =#{address}
+		WHERE
+		`studentId` =
+		#{studentId} ;
+	</update>
 </mapper>
