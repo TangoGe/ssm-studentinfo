@@ -20,7 +20,7 @@ import com.tango.entity.Student;
  * @author tango
  *
  */
-public class MybatisTest {
+public class MybatisMapperConfigTest {
 	private final String resource = "mybatis-config.xml";
 	private SqlSessionFactory sessionFactory;
 	private SqlSession sqlSession;

@@ -12,24 +12,43 @@
 			 http://www.springframework.org/schema/aop/spring-aop.xsd 
 			 http://www.springframework.org/schema/tx 
 			 http://www.springframework.org/schema/tx/spring-tx.xsd">
-
-	<!-- 读取 jdbc.properties -->
+	<!-- Mybatis 交给spring管理，不再需要mybatis-config.xml -->
+	<!-- 1读取 jdbc.properties -->
 	<context:property-placeholder
 		location="classpath:db.properties" />
-	<!-- dataSource -->
-	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource.class">
-		<property name="url" value="${jdbc.url}" ></property>
-		<property name="driverClassName"></property>
-		<property name="userName"></property>
-		<property name="password"></property>
-		<property name=""></property>
+	<!-- 2配置连接池dataSource -->
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="url" value="${jdbc.url}" />
+		<property name="driverClassName"
+			value="${jdbc.driverClassName}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
 	</bean>
 
-	<bean id="..." class="...">
-		<!-- collaborators and configuration for this bean go here -->
+	<!-- 3创建SqlSessionFactory对象 -->
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 关联连接池 -->
+		<property name="dataSource" ref="dataSource" />
+		<!-- 加载sql xml映射文件 -->
+		<property name="mapperLocations"
+			value="classpath:mapper/*.xml" />
 	</bean>
-	<bean id="..." class="...">
-		<!-- collaborators and configuration for this bean go here -->
+
+	<!-- 4 dao接口扫描,创建代理类实现dao接口，注入到程序中 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.tango.dao" />
 	</bean>
-	<!-- more bean definitions go here -->
+
+	<!-- 5 开启Spring 事务管理 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<!-- 6 开启事务注解 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	<!-- 7开启spring ioc 注解扫描 -->
+	<context:component-scan base-package="com.tango" />
 </beans>
