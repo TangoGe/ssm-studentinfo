@@ -7,6 +7,7 @@ package com.tango.entity;
  * @author tango 学生类
  */
 public class Student {
+
 	private Integer studentId;// id
 	private String studentNumber;// 学号
 	private String name; // 姓名
@@ -61,5 +62,10 @@ public class Student {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
+	
+	@Override
+	public String toString() {
+		return "Student [studentId=" + studentId + ", studentNumber=" + studentNumber + ", name=" + name + ", age="
+				+ age + ", phone=" + phone + ", address=" + address + "]";
+	}
 }

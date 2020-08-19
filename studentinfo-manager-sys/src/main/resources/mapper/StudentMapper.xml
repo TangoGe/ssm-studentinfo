@@ -6,7 +6,7 @@
 	<!-- 插入一行数据 -->
 	<insert id="insertOne" parameterType="com.tango.entity.Student">
 		INSERT INTO
-		`student_info`.`tb_student`
+		`student_db`.`tb_student`
 		(`studentNumber`,
 		`name`,
 		`age`,
@@ -36,7 +36,7 @@
 		`phone`,
 		`address`
 		FROM
-		`student_info`.`tb_student`
+		`student_db`.`tb_student`
 	</select>
 
 	<!-- 根据studentId查询数据 -->
@@ -49,21 +49,21 @@
 		`phone`,
 		`address`
 		FROM
-		`student_info`.`tb_student`
+		`student_db`.`tb_student`
 		WHERE `studentId` =
 		#{studentId}
 	</select>
 
 	<!-- 根据id删除数据 -->
 	<delete id="deleteById">
-		DELETE FROM `student_info`.`tb_student`
+		DELETE FROM `student_db`.`tb_student`
 		WHERE
 		studentId = #{studentId}
 	</delete>
 
 	<update id="updateById" parameterType="com.tango.entity.Student">
 		UPDATE
-		`student_info`.`tb_student`
+		`student_db`.`tb_student`
 		SET
 		`studentId` = #{studentId} ,
 		`studentNumber` = #{studentNumber} ,

@@ -1,6 +1,6 @@
-create database student_info;
+create database student_db;
 
-use student_info;
+use student_db;
 
 CREATE TABLE IF NOT EXISTS `tb_student`(
    `studentId` INT UNSIGNED AUTO_INCREMENT,
