@@ -3,56 +3,68 @@
  */
 package com.tango.entity;
 
+import java.util.Date;
+
 /**
  * @author tango 学生类
  */
 public class Student {
 
-	private Integer studentId;// id
-	private String studentNumber;// 学号
-	private String name; // 姓名
-	private int age;// 年龄
-	private String phone;// 电话
-	private String address;// 地址
+	private Integer stuId;// ID
+	private String stuCode;// 学号
+	private String stuName; // 姓名
+	private char sex;// 性别
+	private Date birthDate;// 出生日期
+	private String tellPhone;// 电话
+	private String address;// 家庭住址
+	private char classId; // 班级ID
 
-	public Integer getStudentId() {
-		return studentId;
+	public Integer getStuId() {
+		return stuId;
 	}
 
-	public void setStudentId(Integer studentId) {
-		this.studentId = studentId;
+	public void setStuId(Integer stuId) {
+		this.stuId = stuId;
 	}
 
-	public String getStudentNumber() {
-		return studentNumber;
+	public String getStuCode() {
+		return stuCode;
 	}
 
-	public void setStudentNumber(String studentNumber) {
-		this.studentNumber = studentNumber;
+	public void setStuCode(String stuCode) {
+		this.stuCode = stuCode;
 	}
 
-	public String getName() {
-		return name;
+	public String getStuName() {
+		return stuName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setStuName(String stuName) {
+		this.stuName = stuName;
 	}
 
-	public int getAge() {
-		return age;
+	public char getSex() {
+		return sex;
 	}
 
-	public void setAge(int age) {
-		this.age = age;
+	public void setSex(char sex) {
+		this.sex = sex;
 	}
 
-	public String getPhone() {
-		return phone;
+	public Date getBirthDate() {
+		return birthDate;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
+	}
+
+	public String getTellPhone() {
+		return tellPhone;
+	}
+
+	public void setTellPhone(String tellPhone) {
+		this.tellPhone = tellPhone;
 	}
 
 	public String getAddress() {
@@ -62,10 +74,20 @@ public class Student {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
+
+	public char getClassId() {
+		return classId;
+	}
+
+	public void setClassId(char classId) {
+		this.classId = classId;
+	}
+
 	@Override
 	public String toString() {
-		return "Student [studentId=" + studentId + ", studentNumber=" + studentNumber + ", name=" + name + ", age="
-				+ age + ", phone=" + phone + ", address=" + address + "]";
+		return "Student [stuId=" + stuId + ", stuCode=" + stuCode + ", stuName=" + stuName + ", sex=" + sex
+				+ ", birthDate=" + birthDate + ", tellPhone=" + tellPhone + ", address=" + address + ", classId="
+				+ classId + "]";
 	}
+
 }
