@@ -6,7 +6,8 @@ package com.tango.entity;
 import java.util.Date;
 
 /**
- * @author tango 学生类
+ * 学生类
+ * @author tango 
  */
 public class Student {
 

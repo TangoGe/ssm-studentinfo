@@ -15,10 +15,18 @@ public class StudentController {
 
 	@Resource
 	private StudentService studentService;
-	
+
 	@RequestMapping("/selectById")
 	@ResponseBody
-	public Student  selectById(Integer studentId) {
-		return studentService.selectById(studentId);
+	public Student selectById(Integer stuId) {
+		return studentService.selectById(stuId);
+	}
+
+	@RequestMapping("/updateById")
+	@ResponseBody
+	public String updateById(Student student) {
+		studentService.updateById(student);
+
+		return "成功";
 	}
 }

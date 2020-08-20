@@ -3,76 +3,77 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.tango.dao.StudentDao">
-	<!-- 插入一行数据 -->
-	<insert id="insertOne" parameterType="com.tango.entity.Student">
-		INSERT INTO
-		`student_db`.`tb_student`
-		(`studentNumber`,
-		`name`,
-		`age`,
-		`phone`,
-		`address`
+	<!-- 插入数据 -->
+	<insert id="insert" parameterType="com.tango.entity.Student">
+		INSERT INTO `tb_student`
+		(`StuCode`,
+		`StuName`,
+		`Sex`,
+		`BirthDate`,
+		`TellPhone`,
+		`Address`,
+		`ClassId`
 		)
 		VALUES
-		(#{studentNumber},
-		#{name},
-		#{age},
-		#{phone},
-		#{address}
+		(#{'StuCode'},
+		#{'StuCode'},
+		#{'StuCode'},
+		#{'StuCode'},
+		#{'StuCode'},
+		#{'StuCode'},
+		#{'StuCode'}
 		);
 	</insert>
 
-	<!-- 查询tb_student 表所有数据 -->
-	<!--<resultMap type="com.tango.entity.Student" id="studentmap"> <id column="studentId" 
-		property="studentId" /> <result column="studentNumber" property="studentNumber" 
-		/> <result column="name" property="name" /> <result column="age" property="age" 
-		/> <result column="phone" property="phone" /> <result column="address" property="address" 
-		/> </resultMap> -->
-	<select id="selectAll" resultType="com.tango.entity.Student">
-		SELECT `studentId`,
-		`studentNumber`,
-		`name`,
-		`age`,
-		`phone`,
-		`address`
-		FROM
-		`student_db`.`tb_student`
-	</select>
-
-	<!-- 根据studentId查询数据 -->
+	<!-- 根据stuId查询数据 -->
 	<select id="selectById" parameterType="int"
 		resultType="com.tango.entity.Student">
-		SELECT `studentId`,
-		`studentNumber`,
-		`name`,
-		`age`,
-		`phone`,
-		`address`
+		SELECT `StuId`,
+		`StuCode`,
+		`StuName`,
+		`Sex`,
+		`BirthDate`,
+		`TellPhone`,
+		`Address`,
+		`ClassId`
 		FROM
-		`student_db`.`tb_student`
-		WHERE `studentId` =
-		#{studentId}
+		`tb_student` WHERE
+		`StuId`=#{StuId};
 	</select>
 
-	<!-- 根据id删除数据 -->
+	<!-- 查询student所有数据 -->
+	<select id="selectList" resultType="com.tango.entity.Student">
+		SELECT `StuId`,
+		`StuCode`,
+		`StuName`,
+		`Sex`,
+		`BirthDate`,
+		`TellPhone`,
+		`Address`,
+		`ClassId`
+		FROM
+		`tb_student`
+	</select>
+
+	<!-- 根据ID删除数据 -->
 	<delete id="deleteById">
-		DELETE FROM `student_db`.`tb_student`
-		WHERE
-		studentId = #{studentId}
+		DELETE FROM `tb_student` WHERE stuId = #{stuId}
 	</delete>
 
+	<!-- 根据ID更新数据 -->
 	<update id="updateById" parameterType="com.tango.entity.Student">
-		UPDATE
-		`student_db`.`tb_student`
+		UPDATE `tb_student`
 		SET
-		`studentId` = #{studentId} ,
-		`studentNumber` = #{studentNumber} ,
-		`name` = #{name},
-		`age` = #{age},
-		`phone` = #{phone} ,
-		`address` =#{address}
+		`StuId` = #{stuId} ,
+		`StuCode` = ' #{StuCode} ,
+		`StuName` = #{StuName} ,
+		`Sex` = #{Sex},
+		`BirthDate` = #{BirthDate} ,
+		`TellPhone` = '
+		#{TellPhone},
+		`Address` = #{Address} ,
+		`ClassId` = #{ClassId}
 		WHERE
-		`studentId` =
-		#{studentId} ;
+		`StuId` = #{stuId} ;
 	</update>
 </mapper>

@@ -4,5 +4,7 @@ import com.tango.entity.Student;
 
 public interface StudentService {
 
-	Student selectById(Integer studentId);
+	Student selectById(Integer stuId);
+	
+	void updateById(Student student);
 }

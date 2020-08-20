@@ -5,18 +5,14 @@ import java.util.List;
 import com.tango.entity.Student;
 
 public interface StudentDao {
-	// 插入一条数据
-	void insertOne(Student student);
 
-	// 查询所有数据
-	List<Student> selectAll();
+	void insert(Student student);
 
-	// 根据ID查询一条数据
-	Student selectById(Integer studentId);
+	Student selectById(Integer stuId);
+	
+	List<Student> selectList();
 
-	// 根据ID删除数据
-	void deleteById(Integer studentId);
+	void deleteById(Integer stuId);
 
-	// 根据ID更新数据
 	void updateById(Student student);
 }

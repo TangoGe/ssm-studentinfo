@@ -3,22 +3,31 @@ package com.tango.service.impl;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.tango.dao.StudentDao;
 import com.tango.entity.Student;
+import com.tango.service.StudentService;
 
 @Service
-public class StudentServiceImpl {
+@Transactional // 添加事务注解
+public class StudentServiceImpl implements StudentService {
 	@Resource
 	private StudentDao studentDao;
 
 	/**
-	 * 根据ID查询一条学生数据
+	 * 根据ID查询数据
 	 * 
 	 * @param studentId
 	 * @return
 	 */
-	public Student selectById(Integer studentId) {
-		return studentDao.selectById(studentId);
+	@Override
+	public Student selectById(Integer stuId) {
+		return studentDao.selectById(stuId);
+	}
+
+	@Override
+	public void updateById(Student student) {
+		studentDao.updateById(student);
 	}
 }
