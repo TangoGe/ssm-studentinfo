@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tango.entity.Student;
@@ -28,5 +29,12 @@ public class StudentController {
 		studentService.updateById(student);
 
 		return "成功";
+	}
+
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	@ResponseBody
+	public String save(Student student) {
+		studentService.insert(student);
+		return "ok";
 	}
 }

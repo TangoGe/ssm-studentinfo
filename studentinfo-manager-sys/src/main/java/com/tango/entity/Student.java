@@ -5,9 +5,12 @@ package com.tango.entity;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  * 学生类
- * @author tango 
+ * 
+ * @author tango
  */
 public class Student {
 
@@ -15,8 +18,9 @@ public class Student {
 	private String stuCode;// 学号
 	private String stuName; // 姓名
 	private char sex;// 性别
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date birthDate;// 出生日期
-	private String tellPhone;// 电话
+	private String tellphone;// 电话
 	private String address;// 家庭住址
 	private char classId; // 班级ID
 
@@ -60,12 +64,12 @@ public class Student {
 		this.birthDate = birthDate;
 	}
 
-	public String getTellPhone() {
-		return tellPhone;
+	public String getTellphone() {
+		return tellphone;
 	}
 
-	public void setTellPhone(String tellPhone) {
-		this.tellPhone = tellPhone;
+	public void setTellphone(String tellphone) {
+		this.tellphone = tellphone;
 	}
 
 	public String getAddress() {
@@ -82,13 +86,6 @@ public class Student {
 
 	public void setClassId(char classId) {
 		this.classId = classId;
-	}
-
-	@Override
-	public String toString() {
-		return "Student [stuId=" + stuId + ", stuCode=" + stuCode + ", stuName=" + stuName + ", sex=" + sex
-				+ ", birthDate=" + birthDate + ", tellPhone=" + tellPhone + ", address=" + address + ", classId="
-				+ classId + "]";
 	}
 
 }

@@ -5,75 +5,74 @@
 <mapper namespace="com.tango.dao.StudentDao">
 	<!-- 插入数据 -->
 	<insert id="insert" parameterType="com.tango.entity.Student">
-		INSERT INTO `tb_student`
-		(`StuCode`,
-		`StuName`,
-		`Sex`,
-		`BirthDate`,
-		`TellPhone`,
-		`Address`,
-		`ClassId`
+		INSERT INTO `da_student`
+		(`stu_code`,
+		`stu_name`,
+		`sex`,
+		`birth_date`,
+		`tellphone`,
+		`address`,
+		`class_id`
 		)
 		VALUES
-		(#{'StuCode'},
-		#{'StuCode'},
-		#{'StuCode'},
-		#{'StuCode'},
-		#{'StuCode'},
-		#{'StuCode'},
-		#{'StuCode'}
+		(#{stuCode},
+		#{stuName},
+		#{sex},
+		#{birthDate},
+		#{tellphone},
+		#{address},
+		#{classId}
 		);
 	</insert>
 
 	<!-- 根据stuId查询数据 -->
 	<select id="selectById" parameterType="int"
 		resultType="com.tango.entity.Student">
-		SELECT `StuId`,
-		`StuCode`,
-		`StuName`,
-		`Sex`,
-		`BirthDate`,
-		`TellPhone`,
-		`Address`,
-		`ClassId`
+		SELECT `stu_id`,
+		`stu_code`,
+		`stu_name`,
+		`sex`,
+		`birth_date`,
+		`tellphone`,
+		`address`,
+		`class_id`
 		FROM
-		`tb_student` WHERE
-		`StuId`=#{StuId};
+		`da_student` WHERE
+		`stu_id`=#{stuId};
 	</select>
 
 	<!-- 查询student所有数据 -->
 	<select id="selectList" resultType="com.tango.entity.Student">
-		SELECT `StuId`,
-		`StuCode`,
-		`StuName`,
-		`Sex`,
-		`BirthDate`,
-		`TellPhone`,
-		`Address`,
-		`ClassId`
+		SELECT `stu_id`,
+		`stu_code`,
+		`stu_name`,
+		`sex`,
+		`birth_date`,
+		`tellphone`,
+		`address`,
+		`class_id`
 		FROM
-		`tb_student`
+		`da_student`
 	</select>
 
 	<!-- 根据ID删除数据 -->
 	<delete id="deleteById">
-		DELETE FROM `tb_student` WHERE stuId = #{stuId}
+		DELETE FROM `da_student` WHERE stu_id = #{stuId}
 	</delete>
 
 	<!-- 根据ID更新数据 -->
 	<update id="updateById" parameterType="com.tango.entity.Student">
-		UPDATE `tb_student`
+		UPDATE `da_student`
 		SET
-		`StuId` = #{stuId} ,
-		`StuCode` = ' #{StuCode} ,
-		`StuName` = #{StuName} ,
-		`Sex` = #{Sex},
-		`BirthDate` = #{BirthDate} ,
-		`TellPhone` = '
-		#{TellPhone},
-		`Address` = #{Address} ,
-		`ClassId` = #{ClassId}
+		`stu_id` = #{stuId} ,
+		`stu_code` = #{stuCode} ,
+		`stu_name` =#{stuName} ,
+		`sex` = #{sex},
+		`birth_date` = #{birthDate} ,
+		`tellphone` =#{tellphone},
+		`address` = #{address} ,
+		`class_id` = #{classId}
 		WHERE
-		`StuId` = #{stuId} ;
+		`StuId` = #{stuId};
 	</update>
 </mapper>
