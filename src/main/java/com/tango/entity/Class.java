@@ -1,10 +1,7 @@
 package com.tango.entity;
 
 /**
- * 班级类
- * 
- * @author tango
- *
+ * @author tango 班级类
  */
 public class Class {
 	private Integer classId; // ID

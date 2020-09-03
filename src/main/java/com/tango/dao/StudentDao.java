@@ -6,13 +6,13 @@ import com.tango.entity.Student;
 
 public interface StudentDao {
 
+	Student selectById(Long stuId);
+
+	List<Student> selectAll();
+
 	void insert(Student student);
 
-	Student selectById(Integer stuId);
-	
-	List<Student> selectList();
+	void deleteById(Long stuId);
 
-	void deleteById(Integer stuId);
-
-	void updateById(Student student);
+	void update(Student student);
 }

@@ -14,7 +14,7 @@ import org.springframework.format.annotation.DateTimeFormat;
  */
 public class Student {
 
-	private Integer stuId;// ID
+	private Long stuId;// ID
 	private String stuCode;// 学号
 	private String stuName; // 姓名
 	private char sex;// 性别
@@ -24,11 +24,11 @@ public class Student {
 	private String address;// 家庭住址
 	private char classId; // 班级ID
 
-	public Integer getStuId() {
+	public Long getStuId() {
 		return stuId;
 	}
 
-	public void setStuId(Integer stuId) {
+	public void setStuId(Long stuId) {
 		this.stuId = stuId;
 	}
 

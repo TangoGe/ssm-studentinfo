@@ -42,7 +42,7 @@
 	</select>
 
 	<!-- 查询student所有数据 -->
-	<select id="selectList" resultType="com.tango.entity.Student">
+	<select id="selectAll" resultType="com.tango.entity.Student">
 		SELECT `stu_id`,
 		`stu_code`,
 		`stu_name`,
@@ -61,7 +61,7 @@
 	</delete>
 
 	<!-- 根据ID更新数据 -->
-	<update id="updateById" parameterType="com.tango.entity.Student">
+	<update id="update" parameterType="com.tango.entity.Student">
 		UPDATE `da_student`
 		SET
 		`stu_id` = #{stuId} ,
